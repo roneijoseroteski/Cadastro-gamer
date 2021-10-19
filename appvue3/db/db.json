@@ -1,0 +1,35 @@
+{
+    "Users": {
+      "user": [
+        {
+          "user_ID": 1,
+          "name_user_full": "Thiago da costa",
+          "user_name": "linux",
+          "e_mail": "thiago@gmail.com",
+          "password_user": "124583"
+        },
+        {
+          "user_ID": 2,
+          "name_user_full": "Fernando marques candido",
+          "user_name": "Marquezou",
+          "e_mail": "marquezou@gmail.com",
+          "password_user": "854257"
+        },
+        {
+          "user_ID": 3,
+          "name_user_full": "Douglas penas bastos blank",
+          "user_name": "Narisinho",
+          "e_mail": "doug@gmail.com",
+          "password_user": "985312"
+        },
+        {
+          "user_ID": 4,
+          "name_user_full": "Bruno de almeida campos",
+          "user_name": "Mimiu",
+          "e_mail": "bruno@hotmail.com.br",
+          "password_user": "249658"
+        }
+      ]
+    }
+  }
+  
