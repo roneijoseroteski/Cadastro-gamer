@@ -21,7 +21,7 @@ export default {
 <style scoped>
 body {
   font-family: Arial, Helvetica, sans-serif;
-  margin: 0 auto;
+  margin:0!important;
   padding: 0;
 }
 .container {

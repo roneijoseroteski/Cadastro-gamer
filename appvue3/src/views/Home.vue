@@ -33,8 +33,8 @@
           <label for="sexo_for_user">Qual seu gênero</label>
         </div>
         <div class="input-container-genero">
-          <input type="radio" id="generomale" name="genero-male" value="Masculino" v-model="values.genero_user"/>Masculino
-          <input type="radio" id="genero-female" name="genero-female" value="Feminino" v-model="values.genero_user"/>Feminino
+          <input type="radio" id="generomale" name="genero-male" value="Masculino" v-model="values.genero_user"/> <label for="Masculino">Masculino</label>
+          <input type="radio" id="genero-female" name="genero-female" value="Feminino" v-model="values.genero_user"/> <label for="Feminino">Feminino</label>
         </div>
         <div class="btn-container"><button class="btn" type="submit" placeholder="Register">Register</button></div>
       </form>
@@ -105,8 +105,7 @@ export default {
 </script>
 <style scoped>
 body {
-  margin: 0 auto;
- 
+    margin: 0 auto!important;
 }
 
 .home {
@@ -124,6 +123,9 @@ body {
   justify-content: center;
   color: gold;
   padding: 1%;
+  margin-block-start: 0;
+  margin-block-end: 0;
+
 }
 ul {
   display: flex;
@@ -172,6 +174,7 @@ input[type='radio'] {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 5px;
 
 }
 #genero-female {

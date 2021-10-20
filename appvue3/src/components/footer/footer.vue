@@ -13,7 +13,7 @@ export default {
 <style scoped>
 .container-footer{
   max-width: 100%;
-  height: 112px;
+  height: 125px;
   background-color: rgb(17, 16, 16);
   margin: 0 auto;
     display: flex;
