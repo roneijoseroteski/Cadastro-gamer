@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <h1 class="title">Cadastro de Jogador</h1>
-    <div class="lista">
+    <!-- <div class="lista">
 
       <ul>
         <li v-for="User in lista" :key="User.user_ID">{{User.name_user_full}}</li>
       </ul> 
-    </div>
+    </div> -->
     <div class="formulario">
-      <form id="form" @submit="register()">
+      <form id="form" @submit.prevent="register()">
         <div class="input-container">
           <label for="name_user_Full"> Nome completo jogador :</label>
           <input type="text" id="name_user_full" name="name_user_full" v-model="values.name_user_full" required >
@@ -19,15 +19,15 @@
         </div>
         <div class="input-container">
           <label for="birthday_user">Data de Aniversário :</label>
-          <input type="date" id="birthday_user" name="birthday_user" required>
+          <input type="date" id="birthday_user" name="birthday_user" v-model="values.birthday_user" required>
         </div>
         <div class="input-container">
           <label for="e_mail_user">E mail :</label>
-          <input type="text" id="e_mail_user" name="e_mail_user" required >
+          <input type="text" id="e_mail_user" name="e_mail_user" v-model="values.e_mail" required >
         </div>
         <div class="input-container">
           <label for="password_user">Senha :</label>
-          <input type="text" id="password_user" name="password_user" pattern="[A-Za-z0-9._%+-@]{6,12}[!-?]{1}" required >
+          <input type="text" id="password_user" name="password_user" pattern="[A-Za-z0-9._%+-@]{6,12}[!-?]{1}" v-model="values.password_user" required >
         </div>
         <div class="input-container">
           <label for="sexo_for_user">Qual seu gênero</label>
@@ -47,6 +47,7 @@
 // @ is an alias to /src
 
 import User from '../servicos/users'
+
 export default {
   name: 'Home',
   components: {
@@ -59,7 +60,7 @@ export default {
         name_user_full: null,
         name_user: null,
         birthday_user: null,
-        e_mail_user: null,
+        e_mail: null,
         password_user: null,
         genero_user: null
       }
@@ -98,7 +99,9 @@ export default {
     // })
   },
   register(){
- console.log('registrou')
+    // let data = this.values.birthday_user.$moment().format('dddd');  
+    
+ console.log('registrou ' + this.$moment(this.values.birthday_user).format('DD-MM-YYYY'))
   }
   }
 }
@@ -112,6 +115,7 @@ body {
   max-width: 100%;
   margin: 0px auto;
   background-color: rgb(17, 16, 16);
+  min-height: 250px;
 
 }
 .lista{
@@ -192,9 +196,10 @@ input[type='radio'] {
   padding: 1%;
   display: flex;
   justify-content: center;
-  background-color: rgb(30, 158, 18);
+  background-color:  rgb(17, 16, 16);
   font-weight: bold;
-  color: white;
+  color: gold;
+  border-color: gold;
 
 }
 /* .btn:hover{

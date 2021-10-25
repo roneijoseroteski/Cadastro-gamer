@@ -1,7 +1,7 @@
 <template>
-  <div class="container-footer">
+  <footer class="container-footer">
     <p>conteudo footer</p>
-  </div>
+  </footer>
 </template>
 
 <script>
@@ -12,15 +12,17 @@ export default {
 
 <style scoped>
 .container-footer{
-  max-width: 100%;
-  height: 125px;
+  width: 100%;
+  height: 200px;
   background-color: rgb(17, 16, 16);
-  margin: 0 auto;
-    display: flex;
+  
+  display: flex;
   justify-content: center;
   align-items: center;
   border-top: 5px solid gold;
   color:gold;
+  bottom: 0!important;
+
   
 }
 

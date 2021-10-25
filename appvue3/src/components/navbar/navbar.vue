@@ -2,6 +2,7 @@
     <div id="nav">
     <router-link to="/">Cadastro</router-link> |
     <router-link to="/about">About</router-link>
+    <router-link to="/viewuser">viewuser</router-link>
   </div>
 </template>
 

@@ -24,6 +24,10 @@ body {
   margin:0!important;
   padding: 0;
 }
+* {
+  box-sizing: border-box; 
+  /* para que os imput nao ultrapassem div pai */
+}
 .container {
   max-width: 100%;
   margin: 0 auto;

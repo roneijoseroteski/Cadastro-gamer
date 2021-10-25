@@ -6,28 +6,36 @@
           "name_user_full": "Thiago da costa",
           "user_name": "linux",
           "e_mail": "thiago@gmail.com",
-          "password_user": "124583"
+          "birthday_user":"2002-09-29",
+          "password_user": "124583",
+          "genero_user": "Masculino"
         },
         {
           "user_ID": 2,
           "name_user_full": "Fernando marques candido",
           "user_name": "Marquezou",
           "e_mail": "marquezou@gmail.com",
-          "password_user": "854257"
+          "birthday_user":"2012-10-01",
+          "password_user": "854257",
+          "genero_user": "Masculino"
         },
         {
           "user_ID": 3,
           "name_user_full": "Douglas penas bastos blank",
           "user_name": "Narisinho",
           "e_mail": "doug@gmail.com",
-          "password_user": "985312"
+          "birthday_user":"2008-08-27",
+          "password_user": "985312",
+          "genero_user": "Masculino"
         },
         {
           "user_ID": 4,
           "name_user_full": "Bruno de almeida campos",
           "user_name": "Mimiu",
           "e_mail": "bruno@hotmail.com.br",
-          "password_user": "249658"
+          "birthday_user":"2010-11-15",
+          "password_user": "249658",
+          "genero_user": "Masculino"
         }
       ]
     }
