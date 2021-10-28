@@ -27,7 +27,7 @@
         </div>
         <div class="input-container">
           <label for="password_user">Senha :</label>
-          <input type="text" id="password_user" name="password_user" pattern="[A-Za-z0-9._%+-@]{6,12}[!-?]{1}" v-model="values.password_user" required >
+          <input type="text" id="password_user" name="password_user" pattern="[A-Za-z0-9._%+-@]{6,12}[!-?]{1,}" v-model="values.password_user" required >
         </div>
         <div class="input-container">
           <label for="sexo_for_user">Qual seu gênero</label>
@@ -36,7 +36,11 @@
           <input type="radio" id="generomale" name="genero-male" value="Masculino" v-model="values.genero_user"/> <label for="Masculino">Masculino</label>
           <input type="radio" id="genero-female" name="genero-female" value="Feminino" v-model="values.genero_user"/> <label for="Feminino">Feminino</label>
         </div>
-        <div class="btn-container"><button class="btn" type="submit" placeholder="Register">Register</button></div>
+        <div v-if="!this.values.isEditing" id="btn-container"><button id="btn-register" type="submit" placeholder="Register">Register</button></div>
+        <div v-else class="btn-container-editing">
+          <button class="btn-editing" type="submit" placeholder="Salvar">Salvar</button>
+          <button class="btn-editing" type="submit" @click="calcelEditing()" placeholder="Cancelar">Cancelar</button>
+        </div>
       </form>
 
     </div>
@@ -57,17 +61,20 @@ export default {
     return {
       lista:[],
       values: {
+        id: null,
         name_user_full: null,
         name_user: null,
         birthday_user: null,
         e_mail: null,
         password_user: null,
-        genero_user: null
-      }
+        genero_user: null,
+        isEditing: true
+      },
     }
   },
  mounted(){
-    // 
+    
+    // console.log(this.$route.params.values)
     // apos a instancia ter sido criada
     User.listar().then(resposta => {
       // console.log(resposta.data.user)
@@ -77,6 +84,9 @@ export default {
 
   }
   ,
+  created(){
+    this.editProfileuser(); 
+  },
   methods:{
        getUsers() {
        User.listar().then(response => {
@@ -99,9 +109,52 @@ export default {
     // })
   },
   register(){
-    // let data = this.values.birthday_user.$moment().format('dddd');  
+    if(this.isEditing === false){
+      this.$moment(this.values.birthday_user).format('DD-MM-YYYY')
+      // let data = this.values.birthday_user.$moment().format('dddd');  
+       User.salvar(this.values).then( response => {
+         alert('salvo com sucesso')
+       })
+       this.values = {};
+
+    }else {
+      this.updateuserprofile()
+    }
+
+  },
+   editProfileuser(){
     
- console.log('registrou ' + this.$moment(this.values.birthday_user).format('DD-MM-YYYY'))
+    this.values=  {
+        id: this.$route.params.id,
+        name_user_full: this.$route.params.name_user_full,
+        name_user: this.$route.params.name_user,
+        birthday_user: this.$route.params.birthday_user,
+        e_mail: this.$route.params.e_mail,
+        password_user: this.$route.params.password_user,
+        genero_user: this.$route.params.genero_user,
+        isEditing : this.$route.params.isEditing
+      },
+      console.log(this.$route.params.genero_user +'and ' + this.values.isEditing)
+  },
+  calcelEditing(){
+    this.values = {};
+    this.isEditing = true;
+    this.$router.push('viewuser')
+  },
+  updateuserprofile() {
+    const date= {
+        id: this.values.id,
+        name_user_full: this.values.name_user_full,
+        name_user: this.values.name_user,
+        birthday_user: this.values.birthday_user,
+        e_mail: this.values.e_mail,
+        password_user: this.values.password_user,
+        genero_user: this.values.genero_user
+    }
+    console.log('modificando ' + date.name_user_full)
+    // User.atualizar(this.values).then(response => {
+    //   alert('atualizado')
+    // })
   }
   }
 }
@@ -184,13 +237,19 @@ input[type='radio'] {
 #genero-female {
   margin-left: 2%;
 }
-.btn-container{
+#btn-container{
   width: 600px;
   display: flex;
   justify-content: flex-end;
 
 }
-.btn {
+.btn-container-editing{
+  width: 600px;
+  display: flex;
+  justify-content: flex-end;
+
+}
+#btn-register {
   border-radius: 10px;
   width: 20%;
   padding: 1%;
@@ -201,9 +260,23 @@ input[type='radio'] {
   color: gold;
   border-color: gold;
 
+
 }
-/* .btn:hover{
-  
+.btn-editing {
+  border-radius: 10px;
+  width: 20%;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  background-color:  rgb(17, 16, 16);
+  font-weight: bold;
+  color: gold;
+  border-color: gold;
+  margin-left: 2%;
+}
+
+ #btn-register:hover{
+
   background-color: white;
-} */
+} 
 </style>

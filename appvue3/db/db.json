@@ -1,43 +1,94 @@
 {
-    "Users": {
-      "user": [
-        {
-          "user_ID": 1,
-          "name_user_full": "Thiago da costa",
-          "user_name": "linux",
-          "e_mail": "thiago@gmail.com",
-          "birthday_user":"2002-09-29",
-          "password_user": "124583",
-          "genero_user": "Masculino"
-        },
-        {
-          "user_ID": 2,
-          "name_user_full": "Fernando marques candido",
-          "user_name": "Marquezou",
-          "e_mail": "marquezou@gmail.com",
-          "birthday_user":"2012-10-01",
-          "password_user": "854257",
-          "genero_user": "Masculino"
-        },
-        {
-          "user_ID": 3,
-          "name_user_full": "Douglas penas bastos blank",
-          "user_name": "Narisinho",
-          "e_mail": "doug@gmail.com",
-          "birthday_user":"2008-08-27",
-          "password_user": "985312",
-          "genero_user": "Masculino"
-        },
-        {
-          "user_ID": 4,
-          "name_user_full": "Bruno de almeida campos",
-          "user_name": "Mimiu",
-          "e_mail": "bruno@hotmail.com.br",
-          "birthday_user":"2010-11-15",
-          "password_user": "249658",
-          "genero_user": "Masculino"
-        }
-      ]
+  "Register": [
+    {
+      "name_user_full": "RONEI JOSE ROTESKI",
+      "name_user": "RONEi",
+      "birthday_user": "2021-10-08",
+      "e_mail": "pokemonronei@yahoo.com.br",
+      "password_user": "sdfsdfds%@!",
+      "genero_user": "Masculino",
+      "id": 1
+    },
+    {
+      "name_user_full": "roberto",
+      "name_user": "eli",
+      "birthday_user": "2021-10-19",
+      "e_mail": "berto@mail.com",
+      "password_user": "sdfsdfds%@?",
+      "genero_user": "Masculino",
+      "id": 2
+    },
+    {
+      "name_user_full": "Thiago da costa",
+      "name_user": "linux",
+      "e_mail": "thiago@gmail.com",
+      "birthday_user": "2002-09-29",
+      "password_user": "124583",
+      "genero_user": "Masculino",
+      "id": 3
+    },
+    {
+      "name_user_full": "Fernando marques candido",
+      "name_user": "Marquezou",
+      "e_mail": "marquezou@gmail.com",
+      "birthday_user": "2012-10-01",
+      "password_user": "854257",
+      "genero_user": "Masculino",
+      "id": 4
+    },
+    {
+      "name_user_full": "Douglas penas bastos blank",
+      "name_user": "Narisinho",
+      "e_mail": "doug@gmail.com",
+      "birthday_user": "2008-08-27",
+      "password_user": "985312",
+      "genero_user": "Masculino",
+      "id": 5
+    },
+    {
+      "name_user_full": "Bruno de almeida campos",
+      "name_user": "Mimiu",
+      "e_mail": "bruno@hotmail.com.br",
+      "birthday_user": "2010-11-15",
+      "password_user": "249658",
+      "genero_user": "Masculino",
+      "id": 6
+    },
+    {
+      "name_user_full": "Alberto dos Santos",
+      "name_user": "Albert",
+      "birthday_user": "2021-04-08",
+      "e_mail": "abert@gmail.com",
+      "password_user": "sdfsdfds%@!?",
+      "genero_user": "Masculino",
+      "id": 7
+    },
+    {
+      "name_user_full": "bernardo",
+      "name_user": "verw",
+      "birthday_user": "2021-10-22",
+      "e_mail": "werwf@yahoo.com.br",
+      "password_user": "sdfsdfds%@",
+      "genero_user": "Masculino",
+      "id": 8
+    },
+    {
+      "name_user_full": "marley vicks",
+      "name_user": "marley ",
+      "birthday_user": "2021-10-09",
+      "e_mail": "marley@yahoo.com.br",
+      "password_user": "sdfsdfds%@?",
+      "genero_user": "Masculino",
+      "id": 9
+    },
+    {
+      "name_user_full": "pedrinho calisto",
+      "name_user": "pedrinho",
+      "birthday_user": "2021-05-05",
+      "e_mail": "pedrinho@yahoo.com.br",
+      "password_user": "sdfsdfds%@!",
+      "genero_user": "Masculino",
+      "id": 10
     }
-  }
-  
+  ]
+}

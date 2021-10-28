@@ -10,13 +10,13 @@
     <div class="action">Ações</div>
   </div>
     <div id="user-table-rows">
-      <div class="user-table-row" v-for="user in lista_user" :key="user.user_ID">
+      <div class="user-table-row" v-for="user in lista_user" :key="user.id">
         <div>{{user.name_user_full}}</div>
-        <div>{{user.user_name}}</div>
+        <div>{{user.name_user}}</div>
         <div>{{user.e_mail}}</div>
         <div>{{user.genero_user}}</div>
         <div>{{user.birthday_user}}</div>
-        <div class="btn-container"><button class="btn-edit">Editar</button> <button class="btn-remove">Remover</button></div>
+        <div class="btn-container"><button id="btn-edit" @click="goBack(user)">Editar</button> <button class="btn-remove">Remover</button></div>
       </div>
     </div>
   </div>
@@ -29,12 +29,30 @@ export default {
     data() {
       return {
         lista_user: []
+
       }
     },
     mounted() {
       User.listar().then(resposta => {
-        this.lista_user = resposta.data.user  
+        
+        this.lista_user = resposta.data  
       })
+    },
+    methods: {
+      goBack(values) {
+        let value = {
+          id: values.id,
+          name_user_full:values.name_user_full,
+          name_user:values.name_user,
+          birthday_user: values.birthday_user,
+          e_mail:values.e_mail,
+          genero_user: values.genero_user,
+          password_user: values.password_user,
+          isEditing: false
+        };
+        // console.log(values)
+  this.$router.push({ name: 'Home', params:value});
+}
     }
 
 }
@@ -87,7 +105,7 @@ export default {
   font-weight: bold;
   border-color: gold;
 }
-.btn-edit {
+#btn-edit {
   border-radius: 10px;
   padding: 3px 10px 3px 10px;
   font-weight: bold;

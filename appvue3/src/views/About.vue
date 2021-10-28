@@ -1,6 +1,7 @@
 <template>
     <div class="about">
-    <h1>This is an about page</h1>
+    <h1 class="titleteste">This is an about page</h1>
+    <input type="radio"/> aoaoaoao
   </div>
 </template>
 
@@ -17,9 +18,10 @@ export default {
  background-color: aquamarine;
  margin: 0 auto;
 }
-h1 {
+.titleteste {
   display: flex;
   justify-content: center;
+
 }
 
 </style>

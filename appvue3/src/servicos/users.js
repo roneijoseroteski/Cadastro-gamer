@@ -3,7 +3,15 @@ import { http } from '../servicos/httpconfig';
 export default {
  
   listar:() => {
-    return http.get('Users')
+    return http.get('Register')
+  },
+
+  salvar:(userprofile) => {
+    return http.post('Register', userprofile);
+  },
+  atualizar:(userprofile)=> {
+    return http.put('Register', userprofile)
+
   }
   // listar: () => {
   //  console.log('entrou listar')
