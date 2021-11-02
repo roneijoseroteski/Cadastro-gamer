@@ -152,9 +152,9 @@ export default {
         genero_user: this.values.genero_user
     }
     console.log('modificando ' + date.name_user_full)
-    // User.atualizar(this.values).then(response => {
-    //   alert('atualizado')
-    // })
+    User.atualizar(date).then(response => {
+      alert('atualizado')
+    })
   }
   }
 }
@@ -167,10 +167,11 @@ body {
 .home {
   max-width: 100%;
   margin: 0px auto;
-  background-color: rgb(17, 16, 16);
+  background-color: #202124;
   min-height: 250px;
 
 }
+/* background-color: #303030; */
 .lista{
   display: flex;
   justify-content: center;
@@ -178,7 +179,7 @@ body {
 .title {
   display: flex;
   justify-content: center;
-  color: gold;
+  color: #d1c748;
   padding: 1%;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -188,7 +189,7 @@ ul {
   display: flex;
   justify-content: center;
   width: 100%;
-  color: gold;
+  color: #d1c748;
 }
 ul li{
   flex-wrap: wrap;
@@ -203,7 +204,7 @@ ul li{
 }
 label {
   font-weight: bold;
-  color: gold;
+  color: #d1c748;
   padding: 5px 10px;
 }
 .input-container {
@@ -211,17 +212,48 @@ label {
   flex-direction: column;
   margin-bottom: 2%;
 }
-input{
-  border-radius: 5px;
-  height: 20px;
+ input{
+  border-radius: 10px;
+  height: 40px;
+  background-color: #D9D9D9;
+  border:1px solid transparent;
   
+} 
+
+input:hover {
+  background-color:#FFFFFF;
+  box-shadow: 20px 20px 20px 20px red;
+  transition-property: box-shadow;
+  transition-duration: 400ms;
+  transition-delay: 0s;
+ 
+} 
+/* input {
+  border-color: #3498db;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #3498db inset, 0 0 0 0 #3498db;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out; */
+/* } */
+input:hover {
+  box-shadow: 0 0 10px 0 #d1c748 inset, 0 0 10px 6px #d1c748;
 }
+
+input:focus {
+  background-color:#f3f3f4;
+  box-shadow: 0 0 10px 0 #d1c748 inset, 0 0 10px 6px #d1c748;
+}
+/* input[type='text']{
+  background-color:#f3f3f4 ;
+  
+} */
+
 .input-container-genero {
   display: flex;
   align-items: center;
   font-weight: bold;
   margin-bottom: 2%;
-  color: gold;  
+  color: #d1c748;  
   
 }
 input[type='radio'] { 
@@ -257,8 +289,8 @@ input[type='radio'] {
   justify-content: center;
   background-color:  rgb(17, 16, 16);
   font-weight: bold;
-  color: gold;
-  border-color: gold;
+  color: #d1c748;
+  border-color: #d1c748;
 
 
 }
@@ -268,10 +300,10 @@ input[type='radio'] {
   padding: 1%;
   display: flex;
   justify-content: center;
-  background-color:  rgb(17, 16, 16);
+  background-color:  #111111;
   font-weight: bold;
-  color: gold;
-  border-color: gold;
+  color: #d1c748;
+  border-color: #d1c748;
   margin-left: 2%;
 }
 

@@ -1,7 +1,6 @@
 <template>
     <div id="nav">
-    <router-link to="/">Cadastro</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/">Cadastro</router-link> 
     <router-link to="/viewuser">viewuser</router-link>
   </div>
 </template>
@@ -20,8 +19,8 @@ export default {
     justify-content: center;
     max-width: 100%;
     max-height: 80px;
-    background-color: rgb(17, 16, 16);
-    border-bottom: 5px solid gold;
+    background-color: #171717;
+    border-bottom: 5px solid #d1c748;
 
     
 }
@@ -30,7 +29,7 @@ a{
   justify-content: center;
   align-items: center;
   padding: 2%;
-  color: gold;
+  color: #d1c748;
   list-style: none;
   text-decoration: none;
 }

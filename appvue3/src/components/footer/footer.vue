@@ -14,16 +14,17 @@ export default {
 .container-footer{
   width: 100%;
   height: 200px;
-  background-color: rgb(17, 16, 16);
+  background-color: #171717;
+  
   
   display: flex;
   justify-content: center;
   align-items: center;
-  border-top: 5px solid gold;
-  color:gold;
+  border-top: 5px solid #d1c748;
+  color:#d1c748;
   bottom: 0!important;
 
   
 }
-
+ /* background-color: #111111; */
 </style>

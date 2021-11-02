@@ -64,13 +64,13 @@
       "id": 7
     },
     {
-      "name_user_full": "bernardo",
+      "id": 8,
+      "name_user_full": "bernardo soares",
       "name_user": "verw",
       "birthday_user": "2021-10-22",
       "e_mail": "werwf@yahoo.com.br",
-      "password_user": "sdfsdfds%@",
-      "genero_user": "Masculino",
-      "id": 8
+      "password_user": "sdfsdfds%@!",
+      "genero_user": "Masculino"
     },
     {
       "name_user_full": "marley vicks",
@@ -80,15 +80,6 @@
       "password_user": "sdfsdfds%@?",
       "genero_user": "Masculino",
       "id": 9
-    },
-    {
-      "name_user_full": "pedrinho calisto",
-      "name_user": "pedrinho",
-      "birthday_user": "2021-05-05",
-      "e_mail": "pedrinho@yahoo.com.br",
-      "password_user": "sdfsdfds%@!",
-      "genero_user": "Masculino",
-      "id": 10
     }
   ]
 }

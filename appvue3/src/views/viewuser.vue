@@ -16,7 +16,7 @@
         <div>{{user.e_mail}}</div>
         <div>{{user.genero_user}}</div>
         <div>{{user.birthday_user}}</div>
-        <div class="btn-container"><button id="btn-edit" @click="goBack(user)">Editar</button> <button class="btn-remove">Remover</button></div>
+        <div class="btn-container"><button id="btn-edit" @click="goBack(user)">Editar</button> <button @click="removeuser(user)" class="btn-remove">Remover</button></div>
       </div>
     </div>
   </div>
@@ -52,8 +52,19 @@ export default {
         };
         // console.log(values)
   this.$router.push({ name: 'Home', params:value});
+},
+removeuser(id) {
+  User.delete(id.id).then(response => {
+    alert("removido com sucesso")
+    User.listar().then(resposta => {
+      
+      this.lista_user = resposta.data  
+    })
+  })
+  console.log(id.id)
 }
-    }
+
+}
 
 }
 </script>
@@ -75,7 +86,7 @@ export default {
 }
 #user-table-header {
   margin: 0 auto;
-  border-bottom: 3px solid gold;
+  border-bottom: 3px solid #d1c748;
   padding: 12px;
   font-weight: bold;
 }
@@ -103,16 +114,16 @@ export default {
   border-radius: 10px;
   padding: 3px 10px 3px 10px;
   font-weight: bold;
-  border-color: gold;
+  border-color: #d1c748;
 }
 #btn-edit {
   border-radius: 10px;
   padding: 3px 10px 3px 10px;
   font-weight: bold;
-  border-color: gold;
+  border-color: #d1c748;
 }
 .title{
-  color: gold;
+  color: #d1c748 ;
   display: flex;
   justify-content: center;
 }

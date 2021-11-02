@@ -10,8 +10,11 @@ export default {
     return http.post('Register', userprofile);
   },
   atualizar:(userprofile)=> {
-    return http.put('Register', userprofile)
+    return http.put(`Register/${userprofile.id}`, userprofile)
 
+  },
+  delete:(userprofile)=> {
+    return http.delete(`Register/${userprofile}`)
   }
   // listar: () => {
   //  console.log('entrou listar')
