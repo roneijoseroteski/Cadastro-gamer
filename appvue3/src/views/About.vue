@@ -1,5 +1,5 @@
 <template>
-    <div class="about">
+  <div class="about" id="about-teste">
     <h1 class="titleteste">This is an about page</h1>
     <input type="radio"/> aoaoaoao
   </div>
@@ -7,8 +7,8 @@
 
 <script>
 export default {
-  name: 'about'
-}
+  name: 'about-b',
+};
 </script>
 
 <style scoped>
@@ -23,5 +23,6 @@ export default {
   justify-content: center;
 
 }
+
 
 </style>

@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-    <h1 class="title">Listar Usuarios do Game</h1>  
-  <div id="user-table-header">
-    <div>Nome completo</div>
-    <div>Nome de usuario</div>
-    <div>E-mail</div>
-    <div>Genero</div>
-    <div>Aniversario</div>
-    <div class="action">Ações</div>
-  </div>
+    <h1 class="title">Listar Usuarios do Game</h1>
+    <div id="user-table-header">
+      <div>Nome completo</div>
+      <div>Nome de usuario</div>
+      <div>E-mail</div>
+      <div>Genero</div>
+      <div>Aniversario</div>
+      <div class="action">Ações</div>
+    </div>
     <div id="user-table-rows">
       <div class="user-table-row" v-for="user in lista_user" :key="user.id">
         <div>{{user.name_user_full}}</div>
@@ -16,67 +16,63 @@
         <div>{{user.e_mail}}</div>
         <div>{{user.genero_user}}</div>
         <div>{{user.birthday_user}}</div>
-        <div class="btn-container"><button id="btn-edit" @click="goBack(user)">Editar</button> <button @click="removeuser(user)" class="btn-remove">Remover</button></div>
+        <div class="btn-container"></div>
+        <button id="btn-edit" @click="goBack(user)">Editar</button>
+        <button @click="removeuser(user)"
+        class="btn-remove">Remover</button>
+        </div>
       </div>
-    </div>
   </div>
 </template>
-
 <script>
-import User from '../servicos/users'
+import User from '../servicos/users';
 export default {
-    name:'viewuser',
-    data() {
-      return {
-        lista_user: []
+  name: 'viewuser',
+  data() {
+    return {
+      lista_user: []
 
-      }
-    },
-    mounted() {
-      User.listar().then(resposta => {
-        
-        this.lista_user = resposta.data  
-      })
-    },
-    methods: {
-      goBack(values) {
-        let value = {
-          id: values.id,
-          name_user_full:values.name_user_full,
-          name_user:values.name_user,
-          birthday_user: values.birthday_user,
-          e_mail:values.e_mail,
-          genero_user: values.genero_user,
-          password_user: values.password_user,
-          isEditing: false
-        };
-        // console.log(values)
-  this.$router.push({ name: 'Home', params:value});
-},
-removeuser(id) {
-  User.delete(id.id).then(response => {
-    alert("removido com sucesso")
+    }
+  },
+  mounted() {
     User.listar().then(resposta => {
       
-      this.lista_user = resposta.data  
+      this.lista_user = resposta.data;
     })
-  })
-  console.log(id.id)
-}
-
-}
-
+  },
+  methods: {
+    goBack(values) {
+      const value = {
+        id: values.id,
+        name_user_full: values.name_user_full,
+        name_user: values.name_user,
+        birthday_user: values.birthday_user,
+        e_mail: values.e_mail,
+        genero_user: values.genero_user,
+        password_user: values.password_user,
+        isEditing: false,
+      };
+      this.$router.push({ name: 'Home', params: value });
+    },
+    removeuser(id) {
+      User.delete(id.id).then( response => {
+        User.listar().then( resposta => {
+          this.lista_user = resposta.data;
+        });
+      });
+    },
+  }
 }
 </script>
 
 <style scoped>
-.container{
+.container {
   width: 90%;
   margin: 0 auto;
   min-height: 535px;
 }
 
-#user-table-header ,
+#user-table-header,
 #user-table-rows,
 .user-table-row {
   display: flex;
@@ -95,7 +91,7 @@ removeuser(id) {
   width: 16.5%;
 }
 
-.user-table-row{
+.user-table-row {
   width: 100%;
   padding: 12px;
   border-bottom: 1px solid #CCC;
@@ -104,7 +100,7 @@ removeuser(id) {
   display: flex;
   justify-content: center;
 }
-.btn-container{
+.btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,7 +118,7 @@ removeuser(id) {
   font-weight: bold;
   border-color: #d1c748;
 }
-.title{
+.title {
   color: #d1c748 ;
   display: flex;
   justify-content: center;

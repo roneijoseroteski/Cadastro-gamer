@@ -1,28 +1,15 @@
-import { http } from '../servicos/httpconfig';
-
+import { http } from './httpconfig';
 export default {
- 
-  listar:() => {
-    return http.get('Register')
+  listar: () => {
+    return http.get('Register');
   },
-
-  salvar:(userprofile) => {
+  salvar: (userprofile) => {
     return http.post('Register', userprofile);
   },
-  atualizar:(userprofile)=> {
-    return http.put(`Register/${userprofile.id}`, userprofile)
-
+  atualizar: (userprofile)=> {
+    return http.put(`Register/${userprofile.id}`, userprofile);
   },
-  delete:(userprofile)=> {
-    return http.delete(`Register/${userprofile}`)
-  }
-  // listar: () => {
-  //  console.log('entrou listar')
-  //     http.get('Users').then(response => {
-  //      let req = response.data.user 
-  //     //  console.log(req)
-  //       return req
-  //     })
-    
-  // }
-}
+  delete: (userprofile) => {
+    return http.delete(`Register/${userprofile}`);
+  },
+};
