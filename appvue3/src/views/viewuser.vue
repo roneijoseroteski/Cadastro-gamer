@@ -16,10 +16,11 @@
         <div>{{user.e_mail}}</div>
         <div>{{user.genero_user}}</div>
         <div>{{user.birthday_user}}</div>
-        <div class="btn-container"></div>
+        <div class="btn-container">
         <button id="btn-edit" @click="goBack(user)">Editar</button>
         <button @click="removeuser(user)"
         class="btn-remove">Remover</button>
+        </div>
         </div>
       </div>
   </div>
@@ -52,7 +53,7 @@ export default {
         password_user: values.password_user,
         isEditing: false,
       };
-      this.$router.push({ name: 'Home', params: value });
+      this.$router.push({ name: 'Home_register', params: value });
     },
     removeuser(id) {
       User.delete(id.id).then( response => {

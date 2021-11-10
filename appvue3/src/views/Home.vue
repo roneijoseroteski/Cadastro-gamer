@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1 class="title">Cadastro de Jogador</h1>
+    <message :msg="msg" v-if="showMsg"/>
     <div class="formulario">
       <form id="form" @submit.prevent="register()">
         <div class="input-container">
@@ -36,7 +37,7 @@
           <input type="radio" id="genero-female" name="genero-female" value="Feminino"
           v-model="values.genero_user"/> <label for="Feminino">Feminino</label>
         </div>
-        <div v-if="!this.values.isEditing" id="btn-container"><button id="btn-register"
+        <div v-if="!this.isEditing" id="btn-container"><button id="btn-register"
         type="submit" placeholder="Register">Register</button></div>
         <div v-else class="btn-container-editing">
           <button class="btn-editing" type="submit" placeholder="Salvar">Salvar</button>
@@ -51,8 +52,12 @@
 
 <script>
 import User from '../servicos/users';
+import message from '../components/toast/toast.vue'
 export default {
-  _name: 'Home_register',
+  name: 'Home_register',
+  components: {
+    message
+  },
   data(){
     return {
       lista: [],
@@ -64,52 +69,53 @@ export default {
         e_mail: null,
         password_user: null,
         genero_user: null,
-        isEditing: true,
       },
+      isEditing: false,
+      showMsg: false
     }
   },
  mounted() {
   User.listar().then(resposta => {
-    this.lista = resposta.data.user;
+    this.lista = resposta.data;
   });
-  this.getUsers();
-
-  },
-  created() {
-    this.editProfileuser(); 
+  this.editProfileuser();
   },
   methods: {
-    getUsers() {
-    User.listar().then(response => {
-      console.log(response.data.user);
-    });
-  },
   register() {
-    if(this.isEditing === false){
-      this.$moment(this.values.birthday_user).format('DD-MM-YYYY');
-       User.salvar(this.values).then( response => {
-         alert('salvo com sucesso');
-       })
-       this.values = {};
+    let duplicate = this.lista.find(e => e.name_user === this.values.name_user);
+    console.log('aoaoao ' + this.lista)
+    if(duplicate === undefined && this.isEditing === undefined){
 
-    }else {
+      this.$moment(this.values.birthday_user).format('DD-MM-YYYY');
+      User.salvar(this.values).then( response => {
+        this.msg = "Usuário registrado sucesso";
+        this.showMsg = true;
+        setTimeout(() => this.showMsg = false, 6000);
+      })
+      this.values = {};
+      this.msg = "";
+
+    }else if(duplicate !== undefined && this.isEditing !== undefined) {
       this.updateuserprofile();
-    };
+    }else {
+      alert('nome de usuario ja existe')
+    }
+
 
   },
-   editProfileuser(){
-    
-    this.values =  {
-        id: this.$route.params.id,
-        name_user_full: this.$route.params.name_user_full,
-        name_user: this.$route.params.name_user,
-        birthday_user: this.$route.params.birthday_user,
-        e_mail: this.$route.params.e_mail,
-        password_user: this.$route.params.password_user,
-        genero_user: this.$route.params.genero_user,
-        isEditing : this.$route.params.isEditing
-      },
-      console.log(this.$route.params.genero_user +'and ' + this.values.isEditing);
+  editProfileuser(){
+  this.isEditing = this.$route.params.isEditing;
+  this.values =  {
+    id: this.$route.params.id,
+    name_user_full: this.$route.params.name_user_full,
+    name_user: this.$route.params.name_user,
+    birthday_user: this.$route.params.birthday_user,
+    e_mail: this.$route.params.e_mail,
+    password_user: this.$route.params.password_user,
+    genero_user: this.$route.params.genero_user,
+  };
+      
+  // console.log(this.$route.params.genero_user +' and ' + this.isEditing);
   },
   calcelEditing() {
     this.values = {};
@@ -127,8 +133,13 @@ export default {
       genero_user: this.values.genero_user,
     };
     User.atualizar(date).then(response => {
-      alert('atualizado');
+      this.msg = "Alterado com Sucesso";
+      this.showMsg = true;
+      setTimeout(() =>  this.showMsg= false, 6000);
     });
+    this.values = {};
+    this.msg = "";
+    this.isEditing = false;
   }
   }
 }
